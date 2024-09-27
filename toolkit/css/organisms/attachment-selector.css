@@ -1,0 +1,101 @@
+.attachment-selector{
+	position: relative;
+    overflow: hidden;
+}
+.attachment-selector .file-container{
+	position: relative;
+	float: left;
+}
+.attachment-selector .thumb-container {
+    display: flex;
+	flex-direction: column;
+	max-width:172px;
+	min-width: 120px;
+    min-height: 110px;
+	background-color: var(--base-raised);
+    box-shadow: 0px 8px 20px -4px rgba(34, 54, 84, 0.06);
+    transition: all .2s;
+	border-color: var(--base-border);
+	border-radius: 8px;
+    border: none;
+    margin: 10px 10px;
+    font-size: 12px;
+    overflow: hidden;
+    clear: none;
+    float: left;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.attachment-selector .thumb-container:hover {
+	box-shadow: 0px 8px 12px rgba(34, 54, 84, 0.1), 0px 6px 8px rgba(34, 54, 84, 0.08), 0px -6px 8px rgba(34, 54, 84, 0.02);
+}
+.attachment-selector .thumb-container a{
+	text-decoration: none;
+	color: inherit;
+}
+.thumb-container .image-container {
+    flex-grow: 1;
+}
+.thumb-container > a > span {
+	font-size: 12px;
+	display: block;
+    padding: 4px;
+}
+.attachment-selector .image-container {
+    width: 100%;
+    height: 110px;
+	position: absolute;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	background: url(/toolkit/images/attachment-icon.svg) center no-repeat;
+	background-size: 40%;
+	text-align: center;
+    overflow: hidden;
+}
+.attachment-selector{
+	position: absolute;
+    width: 100%;
+    bottom: 106%;
+    left: 0px;
+    right: 0px;
+	height: 0px;
+    max-height: 0px;
+	opacity:0;
+    overflow: auto;
+	-webkit-transition:all .5s ease;
+	transition:all .5s ease;
+}
+.attachment-selector input[type="file"]{
+	display: none;
+}
+.attachment-selector.active {
+    background: var(--base-sub);
+    padding: 10px;
+    height: 160px;
+	max-height: 160px;
+	border-radius: 4px 4px 0 0;
+	opacity: 1;
+}
+.attachment-list {
+	display: flex;
+	padding-right: 10px;
+}
+.attachment-selector .image-container > img,
+.attachment-selector .image-container > img{
+   	width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.attachment-selector .thumb-container .icon-bttn{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 32px;
+	height: 32px;
+	z-index: 5;
+}

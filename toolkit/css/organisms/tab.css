@@ -1,0 +1,88 @@
+.tab-panel:not(.vertical) nav ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+}
+.tab-panel:not(.vertical) nav ul li.option {
+	margin-right: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
+}
+.tab-panel:not(.vertical) .tab-content {
+	position: relative;
+	padding: 32px 0;
+}
+.tab-panel.veritcal{
+    position: relative;
+    width: 100%;
+    margin: 40px 0 0;
+}
+.tab-panel.vertical ul{
+	position: relative;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.tab-panel.vertical li.option{
+    position: relative;
+    display: table-cell;
+	width: auto;
+	height: 45px;
+	line-height: 45px;
+	text-align: left;
+	font-size: 18px;
+	font-weight: 500;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	overflow: hidden;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
+}
+.tab-panel.vertical li.option a{
+	display: block;
+    height: 45px;
+    padding: 0 20px;
+	text-align: center;
+	text-decoration: none;
+}
+.tab-pane.verticall li.option,
+.tab-panel.vertical li.option a{
+	color: var(--gray-70);
+}
+.tab-panel.vertical li.option:hover,
+.tab-panel.vertical li.option:hover a{
+	color: var(--gray-80);
+	box-shadow: none;
+}
+.tab-panel.vertical li.option:active{
+	background: rgba(0, 0, 0, .1);
+}
+.tab-panel.vertical li.option a:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 5px;
+	bottom: 0;
+	left: 0;
+    right: 0;
+	margin: 0 auto;
+	transition: all .2s ease;
+}
+.tab-panel.vertical li.option a.selected:after {
+	width: 100%;
+	background-color: var(--primary);
+}
+.tab-panel.vertical .tab-content{
+    display: flex;
+	flex-direction: row;
+	position: relative;
+}
+.tab-panel.vertical .tab-content > *{
+	flex-grow: 1;
+	padding: 10px 40px;
+}

@@ -1,0 +1,19 @@
+.hubs-page .overlay.builder .main-column {
+    max-width: 100%;
+    padding: 20px 32px;
+}
+.hubs-page .overlay.builder .main-column > div {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.hubs-page .side .navigation li.option{
+    height: 40px;
+    line-height: 40px;
+}
+.hubs-page .page-toolbar {
+    margin-bottom: 40px;
+}
+.hubs-page .side .navigation li.option a{
+    padding: 8px 20px;
+    height: 40px;
+}

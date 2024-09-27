@@ -1,0 +1,301 @@
+/* PICKERS */
+.picker {
+    position: relative;
+    max-width: max-content;
+}
+.picker .dropdown-label {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+.picker-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-width: 400px;
+    z-index: 5;
+}
+.date-container .picker + .picker {
+    margin: 0px 8px;
+}
+
+/* Number picker */
+.number-picker {
+    display: inline-block;
+    display: inline-flex;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+.number-picker button {
+    flex: 0 0 auto;
+    padding: .25em;
+    border-width: 0px;
+}
+.number-picker button:first-child {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-radius: 4px 0 0 4px;
+}
+.number-picker button:last-child {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-radius: 0 4px 4px 0;
+}
+.number-picker input {
+    max-width: 88px;
+    width: auto;
+    flex: 1 1 auto;
+    padding: .25em .5em;
+    border-width: 2px;
+    border-radius: 0px;
+    text-align: center;
+    -webkit-appearance: textfield;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Time picker */
+.time-picker .picker-menu,
+.date-picker .picker-menu {
+    width: 280px;
+    background-color: var(--base-raised);
+    box-shadow: var(--layer-shadow);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.time-picker header,
+.date-picker header .content {
+    padding: 12px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.date-picker header .content {
+    align-items: flex-end;
+    text-align: left;
+}
+.picker header h3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+.date-picker .inactive {
+    color: var(--gray-30);
+}
+.date-picker .current-day {
+    background-color: var(--base-raised);
+    color: var(--primary-60);
+}
+.date-picker .active-day:after {
+    border: 2px solid var(--primary-60);
+    content: '';
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    border-radius: 50%;
+}
+.time-picker header .am-pm .radio-label {
+    position: relative;
+    margin: 0;
+}
+.time-picker header .am-pm input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    box-shadow: none;
+}
+.time-picker header .am-pm input + span {
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    margin: 0;
+    color: var(--primary-20);
+}
+.time-picker header .am-pm .radio-label input[type="radio"]:checked {
+    border-color: var(--base-raised);
+}
+.time-picker header .am-pm .radio-label input[type="radio"]:checked + span {
+    color: var(--base-raised);
+}
+.time-picker header .am-pm .radio-label input + span::before {
+    display: none;
+}
+.picker-body h4 {
+    padding: 4px;
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+}
+.hours-body h4 {
+    margin-bottom: 12px;
+}
+.mins-body h4 {
+    margin: 12px 0;
+}
+.picker-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-y: overlay;
+    max-height: 300px;
+}
+.picker-body ul li {
+    position: relative;
+    font-size: 14px;
+    padding: 8px;
+    flex: 0 0 calc(100%/6);
+    min-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+}
+.picker-body ul:not(.heading) li {
+    cursor: pointer;
+}
+.picker-body ul li.selected {
+    color: var(--gray);
+}
+.picker-body ul li.selected::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-60);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* date picker */
+.date-picker .picker-body ul li {
+    flex: 0 0 calc(100%/7);
+}
+.picker-body ul.body li:hover {
+    background-color: var(--gray-20);
+}
+.date-picker nav {
+    display: flex;
+    align-items: center;
+    padding: 16px 12px;
+}
+.date-picker nav .date {
+    margin: 0 auto;
+}
+
+/* person picker */
+.person-picker {
+    max-width: 100%;
+}
+.person-picker > button {
+    display: block;
+}
+.person-picker .picker-body ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.person-picker .picker-body ul li {
+    border-radius: 0;
+}
+.person-picker .picker-body ul li .user-info {
+    padding: 4px 12px;
+}
+
+/* Color Picker */
+.color-picker span.color {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    margin: 6px 8px;
+    display: block;
+}
+.color-picker .picker-menu {
+    left: initial;
+    right: 0px;
+}
+.color-palette {
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    width: 200px;
+    padding: 16px;
+    border: none;
+    box-shadow: var(--layer-shadow);
+}
+.color-palette span {
+    cursor: pointer;
+}
+.color.bg-white {
+    border: 1px solid var(--base-border);
+}
+.color.selected {
+    border: 2px solid var(--gray-80);
+}
+
+/* User Picker */
+.user-picker {
+    position: relative;
+}
+.user-picker:hover {
+    z-index: 10;
+}
+.user-picker .search-bar {
+    width: 34px;
+    min-width: 34px;
+    min-height: 40px;
+    border: none;
+}
+.user-picker .search-bar.open {
+    width: 300px;
+    max-width: 100%;
+    border: none;
+}
+.user-picker .search-bar.open .tooltip,
+.user-picker .search-bar.open .tooltip-card {
+    opacity: 0;
+    pointer-events: none;
+}
+.user-picker .search-bar .secondary-bttn {
+    border-radius: 100%;
+    padding: 0;
+    border: 2px solid var(--base-raised);
+}
+.user-picker .search-bar .secondary-bttn:hover {
+    border-color: var(--primary);
+}
+.user-picker .search-bar.open .secondary-bttn {
+    position: absolute;
+    left: 0;
+}
+.user-picker .search-bar.open input {
+    padding: 8px 12px 8px 56px;
+    border: 1px solid var(--base-border);
+}
+.user-picker .search-bar.open input:focus {
+    border: 1px solid var(--primary);
+}
+.search-bar:not(.open) + .option-menu.expandable.expanded {
+    display: none;
+}
