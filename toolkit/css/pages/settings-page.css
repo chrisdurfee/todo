@@ -1,0 +1,114 @@
+.settings-page .main-column {
+    background-color: var(--base-primary);
+}
+.settings {
+    padding: 24px 56px;
+}
+.settings h5 {
+    font-weight: 600;
+    font-size: 16px;
+}
+.settings .card-list .card {
+    margin: 0;
+    padding: 14px;
+}
+.settings .search-bar {
+    margin-right: 15px;
+}
+.settings .button-group {
+    margin: 10px 0;
+}
+.settings .list {
+    margin: 20px 0;
+}
+.settings p {
+    font-size: 14px;
+    color: var(--gray-50);
+    max-width: 600px;
+}
+.settings .settings-tab {
+    padding: 10px 0;
+}
+.settings h6 {
+    margin-top: 20px;
+    font-weight: normal;
+}
+.settings hr,
+.settings .floating + hr {
+    margin: 32px 0;
+}
+p.char-count {
+    margin: 4px 0 16px;
+    font-size: 11px;
+}
+.card.small header {
+    display: flex;
+    align-items: center;
+}
+.card.small header h4 {
+    font-size: 14px;
+}
+.single-user:hover button {
+    display: block;
+}
+.single-user button {
+    margin-left: auto;
+    display: none;
+}
+.locations > header {
+    display: flex;
+    align-items: center;
+}
+.locations > header > .search-bar {
+    margin: 0 0 0 auto;
+}
+.option.location-option {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+}
+.has-access .option.location-option > *:last-child {
+    margin-left: auto;
+    margin-bottom: 0;
+}
+.theme-editor .body {
+    display: flex;
+}
+.email-preview {
+    flex: 0 1 1000px;
+    width: 50%;
+    height: 100vh;
+}
+.theme-editor .settings-section {
+    flex: 1 1 auto;
+}
+.settings .filter-tabs {
+    margin: 0 0 8px;
+}
+.settings-toggle .switch-label.label-before {
+    max-width: 800px;
+    padding-left: 0;
+}
+.settings-toggle .switch-label.label-before input[type="checkbox"] {
+    margin-left: auto;
+}
+.settings-toggle h3,
+.settings-toggle p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+}
+.settings-toggle h3 {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+@media (max-width: 1000px) {
+    .settings-page .side.small {
+        max-height: 50vh;
+        overflow: auto;
+    }
+    .settings {
+        padding: 12px;
+    }
+}

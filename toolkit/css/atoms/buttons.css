@@ -1,0 +1,437 @@
+/* ---------------- BUTTONS ---------------- */
+button,
+.bttn {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    display: inline-block;
+    display: inline-flex;
+    flex-shrink: 0;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 100%;
+    padding: .4em 1.2em;
+    border-width: 0;
+    border-style: solid;
+    border-radius: 4px;
+    margin: 0;
+    transition: all .2s;
+    white-space: nowrap;
+	cursor: pointer;
+
+    /* variables for pressed pseudo element */
+    --pressed-top: 50%;
+    --pressed-left: 50%;
+}
+button i + span,
+.bttn i + span,
+.anchor-icon i + span {
+    margin-left: 8px;
+}
+button i,
+button i + span,
+a i,
+a i + span {
+    vertical-align: middle;
+}
+button i + span,
+a i,
+a i + span {
+    pointer-events: none;
+}
+button + button,
+.bttn + .bttn,
+button + .bttn,
+.bttn + button,
+button + .control-action,
+.bttn + .control-action {
+    margin-left: 8px;
+}
+button:disabled {
+    opacity: 0.5;
+}
+.secondary-bttn {
+    padding: calc(.4em - 1px) calc(1.2em - 1px);
+    border-width: 1px;
+}
+.anchor-icon {
+    display: flex;
+    align-items: center;
+}
+.anchor-icon svg {
+    margin-right: 8px;
+}
+@supports (top: var(--pressed-top)) {
+    button::before,
+    .bttn::before {
+        content: "";
+        position: absolute;
+        top: var(--pressed-top);
+        left: var(--pressed-left);
+        z-index: -1;
+        transform: translate(-50%, -50%) scale(0);
+        width: 200%;
+        padding-bottom: 200%;
+        border-radius: 50%;
+        opacity: 0;
+    }
+    button:focus::before,
+    .bttn:focus::before,
+    button:active::before,
+    .bttn:active::before {
+        animation: ripple 1s .1s ease;
+    }
+    button.tooltip-parent::before,
+    .bttn.tooltip-parent::before {
+        display: none;
+    }
+    @keyframes ripple {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(2.2);
+        }
+    }
+}
+
+/* ---------------- BUTTONS ---------------- */
+button,
+.bttn,
+button.selected,
+button.selected:focus,
+button.selected:active {
+    background-color: #6B98F2;
+    background-color: var(--primary);
+    color: #fff;
+    color: var(--light-text);
+    border-color: var(--gray-50);
+    box-shadow: 0px 4px 8px rgba(34, 54, 84, 0.08), 0px 2px 6px rgba(34, 54, 84, 0.06);
+}
+button:hover,
+.bttn:hover {
+    background-color: var(--primary-70);
+    color: var(--inv-text-color);
+    box-shadow:
+    0px 2px 8px rgba(34, 54, 84, 0.06),
+    0px 2px 4px rgba(34, 54, 84, 0.08),
+    0px 4px 4px rgba(34, 54, 84, 0.12);
+}
+button:focus,
+.bttn:focus {
+    background-color: var(--primary-80);
+    color: var(--inv-text-color);
+    box-shadow:
+    0px 2px 8px rgba(34, 54, 84, 0.06),
+    0px 2px 4px rgba(34, 54, 84, 0.08),
+    0px 4px 4px rgba(34, 54, 84, 0.12);
+}
+button:active,
+.bttn:active {
+    background-color: var(--primary-80);
+    color: var(--inv-text-color);
+    box-shadow:
+    0px 4px 10px rgba(34, 54, 84, 0.06),
+    0px 4px 6px rgba(34, 54, 84, 0.08),
+    0px 6px 8px rgba(34, 54, 84, 0.12);
+}
+button::before,
+.bttn::before,
+button.selected::before {
+    background-color: var(--primary-120);
+}
+button svg path[fill],
+.bttn svg path[fill],
+button svg rect[fill],
+.bttn svg rect[fill] {
+    fill: currentColor;
+}
+button svg path[stroke] {
+    stroke: #fff;
+    stroke: var(--inv-text-color)
+}
+
+.gray-bttn {
+    background-color: var(--gray-30);
+    color: var(--gray-80);
+}
+.gray-bttn:hover {
+    background-color: var(--gray-40);
+}
+.gray-bttn:focus {
+    background-color: var(--gray-40);
+}
+.gray-bttn:active {
+    background-color: var(--gray-40);
+}
+.gray-bttn::before {
+    background-color: var(--gray-50);
+}
+.gray-bttn svg {
+    fill: var(--gray-80);
+}
+
+.secondary-bttn {
+    background-color: rgba(255,255,255,0);
+    color: var(--gray-70);
+    border-color: var(--base-border);
+    box-shadow: none;
+}
+.dark .secondary-bttn,
+.dark.secondary-bttn {
+    color: var(--gray-30);
+    border-color: var(--gray-50);
+}
+.secondary-bttn:hover {
+    background-color: var(--primary-10);
+    border-color: var(--primary-60);
+    color: var(--primary-80);
+}
+.secondary-bttn:focus {
+    background-color: var(--primary-10);
+    border-color: var(--primary-60);
+    color: var(--primary-90);
+}
+.secondary-bttn:active {
+    background-color: var(--gray-20);
+    border-color: var(--primary-60);
+    color: var(--primary-90);
+}
+.secondary-bttn svg {
+    fill: var(--gray-60);
+}
+.secondary-bttn:hover svg,
+.secondary-bttn:focus svg,
+.secondary-bttn:active svg {
+    fill: var(--primary-70);
+}
+.secondary-bttn::before {
+    background-color: var(--primary-30);
+}
+
+.badge-bttn {
+    padding: 2px;
+    border-radius: 12px;
+    background-color: transparent;
+}
+.badge-bttn:hover {
+    background-color: var(--primary);
+}
+
+.icon-bttn {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--gray-50);
+    box-shadow: none;
+}
+.icon-bttn:hover {
+    background-color: var(--light-gray-bg);
+    border-color: var(--light-gray-bg);
+    color: var(--gray-70);
+    box-shadow: none;
+}
+.icon-bttn:focus {
+    background-color: var(--gray-5);
+    border-color: var(--gray-5);
+    color: var(--gray-70);
+    box-shadow: none;
+}
+.icon-bttn:active {
+    background-color: var(--gray-5);
+    border-color: var(--gray-70);
+    color: var(--gray-70);
+    box-shadow: none;
+}
+.icon-bttn:hover svg:not([fill="none"]),
+.icon-bttn:focus svg:not([fill="none"]),
+.icon-bttn:active svg:not([fill="none"]) {
+    fill: var(--gray-70);
+}
+.icon-bttn:hover svg path[stroke],
+.icon-bttn:focus svg path[stroke],
+.icon-bttn:active svg path[stroke] {
+    stroke: var(--gray-70);
+}
+.icon-bttn::before {
+    background-color: var(--gray-40);
+}
+.primary.icon-bttn {
+    background-color: var(--primary-60);
+    border-color: var(--primary-60);
+    color: var(--inv-text-color);
+}
+.primary.icon-bttn svg {
+    fill: var(--inv-text-color);
+}
+
+.text-bttn {
+    background-color: rgba(255,255,255,0);
+    color: var(--primary-60);
+    box-shadow: none;
+}
+.text-bttn.gray-60 {
+    color: var(--gray-60);
+}
+.text-bttn.gray-70 {
+    color: var(--gray-70);
+}
+.text-bttn:hover {
+    background-color: var(--primary-10);
+    color: var(--primary-80);
+    box-shadow: none;
+}
+.text-bttn:focus {
+    background-color: var(--primary-20);
+    color: var(--primary-90);
+}
+.text-bttn:active {
+    background-color: var(--primary-20);
+    color: var(--primary-90);
+}
+.text-bttn svg {
+    fill: currentColor;
+}
+.text-bttn::before {
+    background-color: var(--primary-30);
+}
+.gray-text-bttn {
+    color: var(--gray-50);
+}
+
+button[class*="-bttn"] {
+    box-shadow: none;
+}
+button.unstyled,
+.bttn.unstyled {
+    color: var(--gray-60);
+    background-color: transparent;
+}
+button.unstyled svg,
+.bttn.unstyled svg {
+    fill: var(--gray-60);
+}
+button.unstyled:not(.close):hover,
+button.unstyled:not(.close):active,
+button.unstyled:not(.close):focus {
+    background-color: var(--base-sub);
+    box-shadow: none;
+}
+button.unstyled.close:hover,
+button.unstyled.close:active,
+button.unstyled.close:focus{
+	background: transparent;
+	box-shadow: none;
+}
+button.unstyled.close:focus:after,
+button.unstyled.close:hover:after,
+button.unstyled.close:active:after{
+	background-color: var(--base-sub);
+    box-shadow: none;
+}
+
+.success-bttn {
+    color: #3AA992;
+    background-color: #ECFFFB;
+    border-color: var(--success);
+}
+.success-bttn svg {
+    fill: var(--success);
+}
+.critical-bttn {
+    color: var(--critical);
+    background-color: #FFF5F6;
+    border-color: var(--critical);
+}
+.critical-bttn svg {
+    fill: var(--critical);
+}
+
+/* icon buttons - no text */
+.icon-bttn {
+    font-size: 24px;
+    padding: 2px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    display: inline-block;
+    display: inline-flex;
+}
+.icon-bttn i,
+.icon-bttn svg {
+    display: block;
+}
+.icon-bttn svg:not([fill="none"]) {
+    fill: currentColor;
+}
+.icon-bttn.small {
+    padding: 0;
+}
+
+/* Icon with text */
+.icon-with-text {
+    display: flex;
+}
+.icon-with-text > span {
+    margin-left: 8px;
+}
+
+.icon-counter i + span {
+    margin-left: 2px;
+    font-size: 12px;
+    color: var(--gray-70);
+}
+
+.circle-bttn {
+    border-radius: 100%;
+    padding: 0;
+    color: var(--gray-60);
+    background-color: var(--base-raised);
+    border: 1px solid var(--gray-50);
+}
+.circle-bttn[class*="bg-"] {
+    border-color: transparent;
+}
+.circle-bttn:hover {
+    color: var(--light-text);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0px 0px 1px 1px var(--primary);
+}
+
+button.unstyled,
+.bttn.unstyled {
+    line-height: 1;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+button.unstyled::before,
+.bttn.unstyled::before {
+    display: none;
+}
+
+.back-bttn span {
+    font-size: 14px;
+    margin-left: 4px;
+}
+.overlay .back-bttn {
+    margin: 12px;
+    align-self: flex-start;
+    flex: 0 0 auto;
+}
+.overlay > .back-bttn {
+    position: absolute;
+    z-index: 1;
+}
+@media (max-width: 1400px) {
+    .overlay > .back-bttn {
+        position: static;
+    }
+}

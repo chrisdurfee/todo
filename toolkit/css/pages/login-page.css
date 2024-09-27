@@ -1,0 +1,73 @@
+.login-panel {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form .logo-container svg {
+    display: block;
+    margin: 0 auto 60px;
+}
+.login-form label {
+	position: relative;
+	margin: 0;
+}
+.login-form label i {
+	position: absolute;
+	top: .5em;
+    left: .5em;
+}
+.login-form input,
+.login-form button {
+    display: block;
+    width: 330px;
+    max-width: 100%;
+}
+.login-form input {
+	padding: 1em 2em 1em 44px;
+}
+.login-form button {
+	font-size: 18px;
+	font-weight: 400;
+	padding: 6px;
+    margin: 24px 0;
+}
+.login-form input[type="text"] {
+    border-radius: 4px 4px 0px 0px;
+    border-bottom-color: transparent;
+	margin-bottom: -1px;
+}
+.login-form input[type="password"] {
+	border-radius: 0px 0px 4px 4px;
+}
+.login-panel .login-form a,
+.login-panel .login-form .check-label-text{
+	color: var(--gray-60);
+}
+.login-panel .login-form a {
+	margin-top: 8px;
+	display: block;
+}
+.blocked{
+	opacity: .5;
+	pointer-events: none;
+}
+.login-panel .message {
+    padding: 12px;
+    color: var(--inv-text-color);
+    position: relative;
+	text-align: center;
+	margin: 10px 0;
+	transition-duration: .3s;
+	border-radius: 4px;
+	max-width: 330px;
+}
+.login-panel .message.error {
+    background-color: var(--critical);
+}
+.login-panel .message.success {
+	background: var(--success);
+}
+.reset-password-modal input:first-of-type {
+	margin-bottom: 15px;
+}

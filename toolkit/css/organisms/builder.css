@@ -1,0 +1,460 @@
+.builder .tab-panel nav {
+    border: none;
+}
+.editable {
+    position: relative;
+    padding: 4px 8px;
+    cursor: text;
+}
+.editable:hover::after,
+.editable:focus::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 4px;
+    border: 2px dotted var(--primary-60);
+    pointer-events: none;
+}
+.editable.section-text {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.editable.section-text:empty {
+    border-color: var(--base-border);
+}
+.editable.section-text:focus,
+.editable.section-text:hover {
+    border-color: transparent;
+}
+.outline {
+    margin-top: 40px;
+    border: 1px dashed #A0ADC0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer
+}
+.outline.adding {
+    padding: 0;
+    cursor: default;
+}
+.outline .list {
+    cursor: pointer;
+    margin: 24px 0;
+}
+.outline .option-menu {
+    border: none;
+}
+.dragging .section {
+    max-height: 160px;
+    opacity: .7;
+    overflow: hidden;
+    cursor: grabbing;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+.dragging .section .drag-icon {
+    cursor: grabbing;
+}
+.drag-icon {
+    cursor: grab;
+}
+.section.dragging {
+    z-index: 8;
+}
+.section:not(.outline) {
+    padding: 16px;
+    background: var(--base-raised);
+    border: 1px solid var(--base-border);
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(34, 54, 84, 0.08), 0px 4px 6px rgba(34, 54, 84, 0.1);
+    border-radius: 8px;
+    margin-bottom: 40px;
+    position: relative;
+}
+.section h4 {
+    font-size: 16px;
+}
+.section h5 {
+    font-size: 14px;
+    padding-left: 8px;
+    margin-bottom: 4px;
+}
+.section header,
+.section footer {
+    box-sizing: border-box;
+    padding: 8px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.section footer {
+    border-top: 1px solid #E2E7F0;
+    padding: 24px 0;
+    margin-top: 30px;
+}
+.section header {
+    border-top: none;
+    position: relative;
+}
+.section header .title-container {
+    margin-right: auto;
+}
+.section header .drag-icon {
+    opacity: 0;
+    transition-duration: .3s;
+    position: absolute;
+    z-index: 1;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.section:hover header .drag-icon {
+    opacity: 1
+}
+.section label {
+    margin-bottom: 0;
+}
+.input-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.input-title > label:first-child,
+.input-title > p:first-child {
+    margin-right: auto;
+}
+.input-title > button ~ button {
+    margin-left: 8px;
+}
+.section-input .checkbox,
+.section-input > p.editable.input-label {
+    display: flex;
+    align-items: flex-start;
+    margin-top: -44px;
+    margin-right: 280px;
+    margin-bottom: 0;
+}
+.section-input .checkbox label.editable.input-label {
+    margin-top: 4px;
+}
+.placeholder {
+    margin: 0 0 8px;
+    border-radius: 4px;
+    border: 2px dotted var(--gray-30);
+}
+.tab .placeholder {
+    height: 40px;
+    margin-bottom: -40px;
+    width: initial;
+}
+.sections .placeholder {
+    height: 150px;
+    margin-bottom: -150px;
+}
+.hub-page .nav-container h3 {
+    display: flex;
+    margin-left: 16px;
+    font-size: 20px;
+}
+.hub-page .nav-container h3 > button {
+    margin-left: auto;
+    margin-right: 8px;
+}
+.hub-page nav ul {
+    margin: 0;
+}
+.hub-page .tab-panel {
+    margin: 0;
+}
+.hub-page nav ul li a {
+    font-size: 14px;
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.dragging li a {
+    position: relative;
+}
+.builder .section-header {
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 20px;
+}
+.builder .section-header h4 {
+    font-size: 20px;
+}
+.builder .section .content .section-text,
+.builder .section .content h5 {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.builder .section .content .section-text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.section-input {
+    padding: 12px 40px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    position: relative;
+    cursor: pointer;
+}
+.section-input:hover {
+    background-color: var(--base-sub);
+}
+.section-input.selected {
+    background-color: var(--primary-light-bg);
+}
+.section-input .floating,
+.section-input .floating input,
+.section-input .input-title + input,
+.section-input .input-title + textarea,
+.section-input select {
+    font-size: 14px;
+    width: 100%;
+    max-width: none;
+}
+.section-input textarea {
+    resize: none;
+}
+.builer .radio-buttons {
+    flex-direction: row;
+}
+.section-input .radio-row {
+    flex-direction: column;
+}
+.input-title > label {
+    font-size: 16px;
+    min-width: 16px;
+    margin: 0 auto 0 0;
+}
+.inputs .placeholder {
+    height: 68px;
+    margin-bottom: -68px;
+}
+.section.dragging .section-input {
+    max-height: 68px;
+    overflow: hidden;
+}
+.section-input.dragging {
+    border: 1px dotted var(--primary-60);
+    border-radius: 4px;
+    z-index: 2;
+}
+.section-input.dragging > * {
+    opacity: .7;
+}
+.hub-page nav ul li a button:first-child {
+    margin-left: auto;
+}
+.section-input .input-title > button {
+    flex-shrink: 0;
+}
+.hub-page nav ul li a > button,
+.section-input .input-title > button,
+.section-input .input-title > .switch-label {
+    opacity: 0;
+    transition-duration: .3s;
+    margin-right: 8px;
+}
+.section-input .input-title > button.drag-btn,
+.drag-btn {
+    cursor: grab;
+}
+.section-input.dragging .input-title > button.drag-btn,
+.dragging .drag-btn {
+    cursor: grabbing;
+}
+.section-input .input-title > .switch-label {
+    display: inline-flex;
+    margin-top: -4px;
+    margin-bottom: 0;
+}
+.hub-page nav ul li a:hover > button,
+.section-input:hover .input-title > button,
+.section-input:hover .input-title > .switch-label,
+.section-input.selected .input-title > button,
+.section-input.selected .input-title > .switch-label {
+    opacity: 1;
+}
+.hub-page nav ul li a button {
+    margin: 0;
+}
+.hub-page nav ul li a button svg {
+    width: 1em;
+    height: 1em;
+}
+.hub-page nav ul li a.selected {
+    background-color: var(--primary-light-bg);
+    color: var(--primary-70);
+}
+.builder .section-list.list {
+    grid-template-columns: repeat(auto-fill, 306px);
+}
+.builder .section-list .card i {
+    font-size: 32px;
+    margin: 20px 0 5px;
+}
+.builder .section-list .card span {
+    margin-bottom: 20px;
+}
+.builder .section-list.option-menu {
+    box-shadow: none;
+}
+.builder .section-list .option {
+    padding: 12px 24px;
+    flex-direction: column;
+}
+.builder .side.drawer:last-child {
+    border-left: 2px solid var(--base-border);
+}
+.property-drawer {
+    height: 100%;
+    padding: 16px;
+}
+.property-drawer h3 {
+    font-size: 20px;
+}
+.property-drawer .current-codes .option-menu {
+    min-height: 40px;
+}
+.builder .section .outline {
+    margin-left: 48px;
+    margin-right: 48px;
+}
+.builder .outline,
+.property-drawer .outline {
+    padding: 8px 24px;
+}
+.option-input {
+    display: flex;
+    margin-bottom: 4px;
+}
+.option-input input {
+    font-size: 14px;
+}
+.option-input button {
+    flex: 0 0 auto;
+    align-self: center;
+    margin-left: 4px;
+}
+.builder .toolbar {
+    margin-bottom: 40px;
+}
+.builder .toolbar h2 {
+    font-size: 28px;
+    margin-bottom: 0px;
+}
+.builder .button-group {
+    display: flex;
+    margin-bottom: 4px;
+}
+.builder .button-group button {
+    padding: 8px;
+    line-height: 1;
+}
+/** Required Input for Signature **/
+.signature-panel {
+    position: relative;
+}
+.hidden-input {
+    opacity: 0;
+    position: absolute;
+    bottom: 0px;
+    padding: 0px;
+    height: 0px;
+    width: 0px;
+    margin: 0px;
+    border: none;
+}
+.attachment.list {
+    padding: 7px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--gray-30);
+    margin: 4px 0px 8px;
+    cursor: pointer;
+}
+.attachment:hover {
+    background-color: var(--gray-20);
+}
+.signature-button-panel {
+    display: flex;
+}
+.signature-button-panel button {
+    min-width: 30px;
+    height: auto;
+    min-height: 25px;
+    padding: 0px;
+    position: relative;
+    margin: 0px;
+    margin-left: auto;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+}
+button.close span:first-child {
+    margin-top: -2px;
+    -webkit-transform: rotateZ(45deg);
+    -moz-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+button.close span {
+    width: 14px;
+    height: 2px;
+    background-color: var(--base-raised);
+    margin: 0px auto;
+    display: block;
+    transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+}
+button.close span:nth-child(2) {
+    margin-top: -2px;
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg);
+}
+@media (min-width: 1401px) and (max-width: 1600px) {
+    .app-nav-container.pinned ~ .active-panel-container .builder .aside-container.bside-container  {
+        overflow: auto;
+    }
+    .app-nav-container.pinned ~ .active-panel-container .builder .aside-container.bside-container .side:first-child {
+        flex: 1 1 100%;
+        border-right-width: 0px;
+        border-bottom-width: 1px;
+    }
+    .app-nav-container.pinned ~ .active-panel-container .builder .side.small + .main-column {
+        flex: 1 0 calc(100% - 286px);
+    }
+    .app-nav-container.pinned ~ .active-panel-container .builder .bside-container .side.drawer:last-child {
+        flex: 0 0 286px;
+        order: 2;
+    }
+}
+@media (min-width: 1001px) and (max-width: 1400px) {
+    .builder .aside-container.bside-container .side:first-child {
+        flex: 1 1 100%;
+        border-right-width: 0px;
+        border-bottom-width: 1px;
+    }
+    .builder .side.small + .main-column {
+        flex: 1 0 calc(100% - 286px);
+    }
+    .builder .bside-container .side.drawer:last-child {
+        flex: 0 0 286px;
+        order: 2;
+    }
+}
