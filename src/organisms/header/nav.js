@@ -1,5 +1,5 @@
-import { NavLink } from "@base-framework/base";
 import { Ul } from "@base-framework/atoms";
+import { NavLink } from "@base-framework/base";
 
 /**
  * This will create a navigation link.

@@ -1,5 +1,5 @@
-import { router } from "@base-framework/base";
 import { Div } from "@base-framework/atoms";
+import { router } from "@base-framework/base";
 import { Todo } from "./todo.js";
 
 /**
@@ -8,6 +8,31 @@ import { Todo } from "./todo.js";
 const baseUrl = '/todo/';
 const title = 'Example App';
 router.setup(baseUrl, title);
+
+/**
+ * This will setup the service worker.
+ *
+ * @returns {void}
+ */
+const setupService = () =>
+{
+    // service workers can only work on secure connections
+    const protocol = window.location.protocol.replace(':', '');
+    if (!('serviceWorker' in navigator) || protocol === 'http')
+    {
+        return false;
+    }
+
+    const sw = navigator.serviceWorker;
+    sw.register('./sw.js', {
+        scope: './'
+    }).then((serviceWorker) =>
+    {
+
+    });
+};
+
+setupService();
 
 /**
  * This will create the app.

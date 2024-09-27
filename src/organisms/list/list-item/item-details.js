@@ -1,5 +1,5 @@
-import { Checkbox, DeleteButton } from "../../../atoms/atoms.js";
 import { Div, Label } from "@base-framework/atoms";
+import { Checkbox, DeleteButton } from "../../../atoms/atoms.js";
 
 /**
  * This will refresh the items.

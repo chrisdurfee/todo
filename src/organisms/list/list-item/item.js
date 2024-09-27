@@ -1,5 +1,5 @@
-import { Jot } from "@base-framework/base";
 import { Li } from "@base-framework/atoms";
+import { Jot } from "@base-framework/base";
 import { ItemDetails } from "./item-details.js";
 import { ItemEditor } from "./item-editor.js";
 
