@@ -108,6 +108,10 @@ html {
 	}
 }
 
+ul .active {
+	@apply bg-background text-foreground shadow;
+}
+
 .completed label {
     text-decoration: line-through;
 }
