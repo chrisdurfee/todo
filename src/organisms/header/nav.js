@@ -23,6 +23,6 @@ const NavLi = (href, text) => (new NavLink(
  */
 export const Nav = () => Ul({ class: 'inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground mt-8' }, [
     NavLi('./', 'All'),
-    NavLi('./active', 'Active'),
-    NavLi('./completed', 'Completed')
+    NavLi('active', 'Active'),
+    NavLi('completed', 'Completed')
 ]);
