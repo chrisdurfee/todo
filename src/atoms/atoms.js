@@ -25,6 +25,7 @@ export const Checkbox = Atom((props, children) => (
     Label({ class: 'check-label' }, [
         Input({
             type: 'checkbox',
+            class: 'cursor-pointer',
             ...props,
             children
         })
