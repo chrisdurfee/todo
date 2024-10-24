@@ -9,7 +9,7 @@ import { NavFooter } from "./organisms/nav-footer.js";
  * @returns {object}
  */
 export const Body = () => (
-    Div({ class: 'todo' }, [
+    Div({ class: 'todo flex flex-auto flex-col' }, [
         TodoHeader(),
         SectionList(),
         NavFooter()

@@ -17,7 +17,8 @@ export const Item = Jot(
      */
     state:
     {
-        editing: false
+        editing: false,
+        completed: false
     },
 
     /**
@@ -27,7 +28,7 @@ export const Item = Jot(
      */
     render: Li(
         {
-            class: 'card list-card flex hover',
+            class: 'flex flex-col rounded-lg border bg-card text-card-foreground shadow-sm p-4',
 
             /**
              * This will link the item data and state to add or remove the

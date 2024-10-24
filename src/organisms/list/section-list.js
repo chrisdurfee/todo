@@ -25,8 +25,10 @@ const setupFilter = (filter = 'all') =>
  *
  * @returns {object}
  */
-export const SectionList = () => Section({ class: 'main' }, [
+export const SectionList = () => Section({ class: 'main flex flex-auto flex-col px-4' }, [
     Div({
+        class: 'flex flex-auto flex-col',
+
         /**
          * This will update the list anytime the filter is
          * changed.
@@ -36,7 +38,7 @@ export const SectionList = () => Section({ class: 'main' }, [
             const filter = setupFilter(value);
 
             return Ul({
-                class: 'todo-list',
+                class: 'todo-list flex flex-col mt-4 gap-2',
 
                 /**
                  * This will bind to the parent items property and

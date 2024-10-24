@@ -1,5 +1,6 @@
-import { Div, Label } from "@base-framework/atoms";
+import { Div, I, Label } from "@base-framework/atoms";
 import { Checkbox, DeleteButton } from "../../../atoms/atoms.js";
+import { Icons } from "../../../icons/icons.js";
 
 /**
  * This will refresh the items.
@@ -17,32 +18,32 @@ const refresh = (data) =>
  *
  * @returns {object}
  */
-export const ItemDetails = () => (Div({ class: 'view' }, [
-    /**
-     * This will bind the completed value to the checkbox and
-     * refresh the list when changed.
-     */
-    Checkbox({ bind: 'completed', change: (e, {context}) => refresh(context.data)}),
+export const ItemDetails = () => (
+    Div({ class: 'inline-flex flex-auto flex-row gap-2 items-center' }, [
+        /**
+         * This will bind the completed value to the checkbox and
+         * refresh the list when changed.
+         */
+        Checkbox({ bind: 'completed', change: (e, {context}) => refresh(context.data)}),
 
-    /**
-     * This will watch the item description and update it
-     * when it changes.
-     */
-    Label({
-            click: (e, {state}) => state.toggle('editing')
-        },
-        '[[description]]'
-    ),
-    DeleteButton(
-    {
-        click(e, parent)
+        /**
+         * This will watch the item description and update it
+         * when it changes.
+         */
+        Label({ class: 'text-muted-foreground flex flex-auto items-center', click: (e, {state}) => state.toggle('editing')}, '[[description]]'),
+        DeleteButton(
         {
-            /**
-             * This will remove the item from the list.
-             */
-            const data = parent.context.data;
-            data.splice('items', parent.index)
-            .store();
-        }
-    })
-]));
+            click(e, parent)
+            {
+                /**
+                 * This will remove the item from the list.
+                 */
+                const data = parent.context.data;
+                data.splice('items', parent.index)
+                .store();
+            }
+        }, [
+            I({ html: Icons.trash })
+        ])
+    ])
+);

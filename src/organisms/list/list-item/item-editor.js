@@ -1,4 +1,4 @@
-import { Input } from "@base-framework/atoms";
+import { Div, Input } from "@base-framework/atoms";
 
 const ENTER_KEY = 13;
 const ESCAPE_KEY = 27;
@@ -14,7 +14,7 @@ const EditorInput = () => Input(
      * This will bind the item description to the item data.
      */
     bind: 'description',
-    class: 'edit',
+    class: 'edit flex flex-auto bg-input mt-2 p-2 rounded-sm',
     keydown(e, {data})
     {
         const key = e.which;
@@ -44,8 +44,10 @@ const EditorInput = () => Input(
  *
  * @returns {object}
  */
-export const ItemEditor = () => (
+export const ItemEditor = () => Div(
 {
+    class: 'flex flex-auto',
+
     /**
      * This will watch the item state and only render the editor
      * input when editing is set to true.

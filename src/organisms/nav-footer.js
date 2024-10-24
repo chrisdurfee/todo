@@ -1,4 +1,5 @@
-import { Button, Div, Footer, Span } from "@base-framework/atoms";
+import { Button, Footer, I, Span } from "@base-framework/atoms";
+import { Icons } from "../icons/icons.js";
 
 /**
  * This will remove the completed items.
@@ -40,12 +41,9 @@ const ClearButton = () => (
             return null;
         }
 
-        return Div([
-            Span('Clear Completed'),
-            Button({
-                class: 'clear-completed bttn danger',
-                click: (e, {context}) => clear(context.data)
-            })
+        return Button({ class: 'flex-row justify-between items-center inline-flex whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 px-4 py-2', click: (e, {context}) => clear(context.data) }, [
+            Span({class: 'mr-2' }, 'Clear Completed'),
+            I({ html: Icons.trash })
         ]);
     }]
 });
@@ -55,7 +53,7 @@ const ClearButton = () => (
  *
  * @returns {object}
  */
-export const NavFooter = () => Footer({ class: 'footer' }, [
-    Span('[[active]] active'),
+export const NavFooter = () => Footer({ class: 'footer inline-flex flex-row justify-between items-center p-4 min-h-[72px]' }, [
+    Span({ class: 'text-muted-foreground' }, '[[active]] active'),
     ClearButton()
 ]);
