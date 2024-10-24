@@ -83,6 +83,10 @@ html {
 	box-sizing: border-box;
 }
 
+*:focus-visible {
+	@apply ring ring-ring outline-none;
+}
+
 /*
  * This will set the app padding to support the safe area.
  */
