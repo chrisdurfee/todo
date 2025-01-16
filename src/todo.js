@@ -51,3 +51,5 @@ export class Todo extends Component
         return Body();
     }
 }
+
+export default Todo;

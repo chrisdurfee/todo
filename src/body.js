@@ -15,3 +15,5 @@ export const Body = () => (
         NavFooter()
     ])
 );
+
+export default Body;

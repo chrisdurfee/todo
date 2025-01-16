@@ -1,4 +1,5 @@
-import { Div, Input } from "@base-framework/atoms";
+import { Div } from "@base-framework/atoms";
+import { Input } from "@base-framework/ui/atoms";
 
 const ENTER_KEY = 13;
 const ESCAPE_KEY = 27;
@@ -14,7 +15,7 @@ const EditorInput = () => Input(
      * This will bind the item description to the item data.
      */
     bind: 'description',
-    class: 'edit flex flex-auto bg-input mt-2 p-2 rounded-sm',
+    class: 'edit flex flex-auto mt-2 p-2 rounded-sm',
     keydown(e, {data})
     {
         const key = e.which;

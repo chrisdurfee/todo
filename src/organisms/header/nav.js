@@ -1,29 +1,27 @@
-import { Ul } from "@base-framework/atoms";
-import { NavLink } from "@base-framework/base";
-
-/**
- * This will create a navigation link.
- *
- * @param {string} href
- * @param {string} text
- * @returns {object}
- */
-const NavLi = (href, text, exact = false) => (new NavLink(
-{
-    href,
-    text,
-    exact,
-    class: 'inline-flex flex-auto items-center justify-center whitespace-nowrap rounded-md px-8 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-    dataSet: ['selected', ['state', true, 'active']]
-}));
+import { TabNavigation } from "@base-framework/ui/organisms";
 
 /**
  * This will create a nav.
  *
  * @returns {object}
  */
-export const Nav = () => Ul({ class: 'inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground mt-8' }, [
-    NavLi('./', 'All', true),
-    NavLi('active', 'Active'),
-    NavLi('completed', 'Completed')
-]);
+export const Nav = () => (
+    new TabNavigation({
+        class: 'mt-6 mb-1',
+        options: [
+            {
+                label: 'All',
+                href: './',
+                exact: true
+            },
+            {
+                label: 'Active',
+                href: 'active'
+            },
+            {
+                label: 'Completed',
+                href: 'completed'
+            }
+        ]
+    })
+);

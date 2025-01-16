@@ -1,6 +1,6 @@
 {
 	"name": "@base/test",
-	"version": "0.0.1",
+	"version": "1.0.1",
 	"description": "This is an exmaple todo app.",
 	"main": "/dist/main.js",
 	"type": "module",
@@ -35,6 +35,7 @@
 	"dependencies": {
 		"@base-framework/atoms": "^1.0.20",
 		"@base-framework/base": "^3.0.122",
+		"@base-framework/ui": "1.0.25",
 		"tailwindcss-animate": "^1.0.7",
 		"vite": "^3.1.0"
 	},

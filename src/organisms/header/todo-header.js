@@ -1,4 +1,5 @@
-import { H1, Header, Input } from "@base-framework/atoms";
+import { H1, Header } from "@base-framework/atoms";
+import { Input } from "@base-framework/ui/atoms";
 import { Nav } from "./nav.js";
 
 /**
@@ -31,7 +32,7 @@ export const TodoHeader = () => (
     Header({ class: 'header sm:py-8 px-4 flex flex-col' }, [
         H1({ class: 'text-3xl font-bold my-4' }, 'Todo'),
         Input({
-            class: 'new-todo bg-input p-2 rounded-sm',
+            class: 'new-todo p-2',
             placeholder: 'What needs to be done?',
             autofocus: true,
 

@@ -1,15 +1,25 @@
 /**
+ * @type {string} protocol
+ */
+const protocol = window.location.protocol.replace(':', '');
+
+/**
+ * This will check if the service worker is supported.
+ *
+ * @returns {boolean}
+ */
+const isSupported = () => ('serviceWorker' in navigator) && protocol !== 'http';
+
+/**
  * This will setup the service worker.
  *
  * @returns {void}
  */
 export const setupService = () =>
 {
-    // service workers can only work on secure connections
-    const protocol = window.location.protocol.replace(':', '');
-    if (!('serviceWorker' in navigator) || protocol === 'http')
+    if (isSupported() === false)
     {
-        return false;
+        return;
     }
 
     const sw = navigator.serviceWorker;
@@ -19,4 +29,4 @@ export const setupService = () =>
     {
 
     });
-};
+}
