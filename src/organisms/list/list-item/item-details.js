@@ -1,6 +1,5 @@
-import { Div, I, Label } from "@base-framework/atoms";
+import { Div, Label } from "@base-framework/atoms";
 import { Checkbox, DeleteButton } from "../../../atoms/atoms.js";
-import { Icons } from "../../../icons/icons.js";
 
 /**
  * This will refresh the items.
@@ -42,8 +41,6 @@ export const ItemDetails = () => (
                 data.splice('items', parent.index)
                 .store();
             }
-        }, [
-            I({ html: Icons.trash })
-        ])
+        })
     ])
 );
