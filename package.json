@@ -39,5 +39,9 @@
 		"tailwindcss-animate": "^1.0.7",
 		"vite": "^3.1.0"
 	},
+	"files": [
+		"package.json",
+		"readme.md"
+	],
 	"homepage": "https://github.com/chrisdurfee/todo#readme"
 }
