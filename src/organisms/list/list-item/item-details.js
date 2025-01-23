@@ -5,6 +5,7 @@ import { Checkbox, DeleteButton } from "../../../atoms/atoms.js";
  * This will refresh the items.
  *
  * @param {object} data
+ * @returns {void}
  */
 const refresh = (data) =>
 {

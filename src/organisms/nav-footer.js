@@ -1,6 +1,6 @@
 import { Footer, On, Span } from "@base-framework/atoms";
 import { Button } from "@base-framework/ui";
-import { Icons } from "../icons/icons.js";
+import { Icons } from "@base-framework/ui/icons";
 
 /**
  * This will remove the completed items.
