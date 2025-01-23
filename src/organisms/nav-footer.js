@@ -1,4 +1,5 @@
-import { Button, Footer, I, Span } from "@base-framework/atoms";
+import { Footer, On, Span } from "@base-framework/atoms";
+import { Button } from "@base-framework/ui";
 import { Icons } from "../icons/icons.js";
 
 /**
@@ -9,7 +10,7 @@ import { Icons } from "../icons/icons.js";
  */
 const clear = (data) =>
 {
-    const items = data.get('items');
+    const items = data.items;
     if (items.length < 1)
     {
         return;
@@ -20,8 +21,12 @@ const clear = (data) =>
      * and store the active items.
      */
     const active = items.filter(item => !item.completed);
-    data.set('items', active)
-        .store();
+    data.items = active;
+
+    /**
+     * This will store the data to the local storage.
+     */
+    data.store();
 };
 
 /**
@@ -30,23 +35,16 @@ const clear = (data) =>
  * @returns {object}
  */
 const ClearButton = () => (
-{
-    /**
-     * This will only render the button if we have completed tasks.
-     */
-    onSet: ['completed', (value) =>
-    {
-        if (value < 1)
-        {
-            return null;
-        }
-
-        return Button({ class: 'flex-row justify-between items-center inline-flex whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 px-4 py-2', click: (e, {context}) => clear(context.data) }, [
-            Span({class: 'mr-2' }, 'Clear Completed'),
-            I({ html: Icons.trash })
-        ]);
-    }]
-});
+    On('completed', (value) =>
+        (value > 0) && Button({
+            variant: 'withIcon',
+            position: 'right',
+            class: 'destructive',
+            click: (e, {context}) => clear(context.data),
+            icon: Icons.trash
+        }, 'Clear Completed')
+    )
+);
 
 /**
  * This will create a nav footer.

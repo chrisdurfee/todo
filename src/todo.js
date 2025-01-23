@@ -7,7 +7,6 @@ import { data } from "./data.js";
  *
  * This is the main todo component. It will render the header, list and footer.
  *
- * @export
  * @class Todo
  * @extends {Component}
  */
@@ -27,6 +26,7 @@ export class Todo extends Component
          * This will link the route filter param to the data filter
          * property.
          */
+        // @ts-ignore
         data.link(this.route, 'filter');
     }
 

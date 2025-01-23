@@ -1,14 +1,13 @@
 import { Div } from "@base-framework/atoms";
 import { router } from "@base-framework/base";
+import { Configs } from "./configs.js";
 import { setupService } from "./service.js";
 import { Todo } from "./todo.js";
 
 /**
  * This will setup the app router.
  */
-const BASE_URL = '/todo/';
-const title = 'Example App';
-router.setup(BASE_URL, title);
+router.setup(Configs.router.baseUrl, Configs.router.title);
 
 /**
  * This will setup the service worker.

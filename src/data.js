@@ -2,6 +2,8 @@ import { Data } from "@base-framework/base";
 
 /**
  * This will setup the todo data.
+ *
+ * @type {object} data
  */
 export const data = new Data();
 
@@ -9,6 +11,8 @@ export const data = new Data();
  * The storage key will be used to get and set data
  * to the local storage. We will set the key to the
  * data source to allow it to use the key.
+ *
+ * @type {string} STORAGE_KEY
  */
 const STORAGE_KEY = 'key-name';
 data.setKey(STORAGE_KEY);
@@ -20,6 +24,8 @@ data.setKey(STORAGE_KEY);
  * We can pass the default data in to the resume
  * method to pull the previous local storage data or
  * start with the default data.
+ *
+ * @type {object} defaultValue
  */
 const defaultValue =
 {
@@ -33,7 +39,7 @@ data.resume(defaultValue);
 /**
  * This will update the list count when updated.
  *
- * @param {array} items
+ * @param {Array<object>} items
  * @returns {void}
  */
 data.on('items', (items) =>
@@ -58,6 +64,7 @@ data.on('filter', (value) =>
 {
     if (!value)
     {
+        // @ts-ignore
         data.filter = 'all';
     }
     data.store();

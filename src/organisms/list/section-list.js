@@ -1,4 +1,4 @@
-import { Div, Section, Ul } from "@base-framework/atoms";
+import { Div, On, Section, Ul } from "@base-framework/atoms";
 import { Item } from "./list-item/item.js";
 
 /**
@@ -26,14 +26,12 @@ const setupFilter = (filter = 'all') =>
  * @returns {object}
  */
 export const SectionList = () => Section({ class: 'main flex flex-auto flex-col px-4' }, [
-    Div({
-        class: 'flex flex-auto flex-col',
+    Div({ class: 'flex flex-auto flex-col' }, [
 
         /**
-         * This will update the list anytime the filter is
-         * changed.
+         * This will update the list when the filter is updated.
          */
-        onSet: ['filter', (value) =>
+        On('filter', (value) =>
         {
             const filter = setupFilter(value);
 
@@ -62,6 +60,6 @@ export const SectionList = () => Section({ class: 'main flex flex-auto flex-col 
                     });
                 }]
             });
-        }]
-    })
+        })
+    ])
 ]);
