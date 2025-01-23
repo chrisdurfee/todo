@@ -1,4 +1,4 @@
-import { Div } from "@base-framework/atoms";
+import { Div, OnState } from "@base-framework/atoms";
 import { Input } from "@base-framework/ui/atoms";
 
 const ENTER_KEY = 13;
@@ -19,19 +19,19 @@ const EditorInput = () => (
         class: 'edit flex flex-auto mt-2 p-2 rounded-sm',
         keydown(e, {data})
         {
-            const key = e.which;
-            if (key === ENTER_KEY)
+            switch (e.which)
             {
-                this.blur();
-            }
-            else if (key === ESCAPE_KEY)
-            {
-                /**
-                 * This will stop the editor and revert the
-                 * data.
-                 */
-                data.revert();
-                this.blur();
+                case ENTER_KEY:
+                    this.blur();
+                    break;
+                case ESCAPE_KEY:
+                    /**
+                     * This will stop the editor and revert the
+                     * data.
+                     */
+                    data.revert();
+                    this.blur();
+                    break;
             }
         },
         blur(e, parent)
@@ -47,13 +47,8 @@ const EditorInput = () => (
  *
  * @returns {object}
  */
-export const ItemEditor = () => Div(
-{
-    class: 'flex flex-auto',
-
-    /**
-     * This will watch the item state and only render the editor
-     * input when editing is set to true.
-     */
-    onState: ['editing', (val) => (val && EditorInput() || null)]
-});
+export const ItemEditor = () => (
+    Div({ class: 'flex flex-auto' }, [
+        OnState('editing', (val) => val && EditorInput() || null)
+    ])
+);
