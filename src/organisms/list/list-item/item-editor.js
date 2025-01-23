@@ -9,36 +9,38 @@ const ESCAPE_KEY = 27;
  *
  * @returns {object}
  */
-const EditorInput = () => Input(
-{
-    /**
-     * This will bind the item description to the item data.
-     */
-    bind: 'description',
-    class: 'edit flex flex-auto mt-2 p-2 rounded-sm',
-    keydown(e, {data})
+const EditorInput = () => (
+    Input(
     {
-        const key = e.which;
-        if (key === ENTER_KEY)
+        /**
+         * This will bind the item description to the item data.
+         */
+        bind: 'description',
+        class: 'edit flex flex-auto mt-2 p-2 rounded-sm',
+        keydown(e, {data})
         {
-            this.blur();
-        }
-        else if (key === ESCAPE_KEY)
+            const key = e.which;
+            if (key === ENTER_KEY)
+            {
+                this.blur();
+            }
+            else if (key === ESCAPE_KEY)
+            {
+                /**
+                 * This will stop the editor and revert the
+                 * data.
+                 */
+                data.revert();
+                this.blur();
+            }
+        },
+        blur(e, parent)
         {
-            /**
-             * This will stop the editor and revert the
-             * data.
-             */
-            data.revert();
-            this.blur();
+            parent.context.data.store();
+            parent.state.editing = false;
         }
-    },
-    blur(e, parent)
-    {
-        parent.context.data.store();
-        parent.state.editing = false;
-    }
-});
+    })
+);
 
 /**
  * This will create a todo editor.

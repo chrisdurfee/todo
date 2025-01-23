@@ -23,23 +23,29 @@ export const ItemDetails = () => (
          * This will bind the completed value to the checkbox and
          * refresh the list when changed.
          */
-        Checkbox({ bind: 'completed', change: (e, {context}) => refresh(context.data)}),
+        Checkbox({
+            bind: 'completed',
+            change: (e, { context }) => refresh(context.data)
+        }),
 
         /**
          * This will watch the item description and update it
          * when it changes.
          */
-        Label({ class: 'text-muted-foreground flex flex-auto items-center cursor-pointer', click: (e, {state}) => state.toggle('editing')}, '[[description]]'),
+        Label({
+            class: 'text-muted-foreground flex flex-auto items-center cursor-pointer',
+            click: (e, { state }) => state.toggle('editing')}, '[[description]]'
+        ),
         DeleteButton(
         {
-            click(e, parent)
+            click(e, { context, index })
             {
                 /**
                  * This will remove the item from the list.
                  */
-                const data = parent.context.data;
-                data.splice('items', parent.index)
-                .store();
+                context.data
+                    .splice('items', index)
+                    .store();
             }
         })
     ])

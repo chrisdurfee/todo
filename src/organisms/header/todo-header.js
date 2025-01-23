@@ -20,6 +20,8 @@ const add = (description, data) =>
 
 /**
  * This will store the enter key code.
+ *
+ * @type {number} ENTER_KEY
  */
 const ENTER_KEY = 13;
 
